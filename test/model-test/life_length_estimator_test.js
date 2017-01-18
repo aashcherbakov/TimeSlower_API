@@ -20,4 +20,16 @@ describe('Life length estimator', function () {
     assert(sut.averageFor('Krakozhia') == null);
   });
 
+  it('should find male age for country', function () {
+    assert(sut.maxAgeFor('Ukraine', 0) == 65.73);
+  });
+
+  it('should find female age for country', function () {
+    assert(sut.maxAgeFor('Egypt', 1) == 73.05)
+  });
+
+  it('should account for invalid gender argument', function () {
+    assert(sut.maxAgeFor('Egypt', 3) == null);
+  });
+
 });
