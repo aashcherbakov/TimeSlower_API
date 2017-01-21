@@ -14,6 +14,7 @@ app.use(bodyParser.json());
 
 router(app);
 
+// Middleware to centralize error handling. Must be called after router.
 app.use((err, req, res, next) => {
   res.status(422).send({ error: err.message });
 });

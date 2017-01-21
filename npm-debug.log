@@ -1,34 +1,37 @@
 0 info it worked if it ends with ok
-1 verbose cli [ '/usr/local/bin/node', '/usr/local/bin/npm', 'run', 'test' ]
-2 info using npm@3.10.8
-3 info using node@v6.9.1
+1 verbose cli [ '/Users/alexandershcherbakov/.nvm/versions/node/v6.9.4/bin/node',
+1 verbose cli   '/Users/alexandershcherbakov/.nvm/versions/node/v6.9.4/bin/npm',
+1 verbose cli   'run',
+1 verbose cli   'test' ]
+2 info using npm@3.10.10
+3 info using node@v6.9.4
 4 verbose run-script [ 'pretest', 'test', 'posttest' ]
 5 info lifecycle timeslower-api@1.0.0~pretest: timeslower-api@1.0.0
 6 silly lifecycle timeslower-api@1.0.0~pretest: no script for pretest, continuing
 7 info lifecycle timeslower-api@1.0.0~test: timeslower-api@1.0.0
 8 verbose lifecycle timeslower-api@1.0.0~test: unsafe-perm in lifecycle true
-9 verbose lifecycle timeslower-api@1.0.0~test: PATH: /usr/local/lib/node_modules/npm/bin/node-gyp-bin:/Users/a_shcherbakov/Developer/timeslower-api/node_modules/.bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
-10 verbose lifecycle timeslower-api@1.0.0~test: CWD: /Users/a_shcherbakov/Developer/timeslower-api
+9 verbose lifecycle timeslower-api@1.0.0~test: PATH: /Users/alexandershcherbakov/.nvm/versions/node/v6.9.4/lib/node_modules/npm/bin/node-gyp-bin:/Users/alexandershcherbakov/Developer/TimeSlower_API/node_modules/.bin:/Users/alexandershcherbakov/.nvm/versions/node/v6.9.4/bin:/Users/alexandershcherbakov/.swiftenv/shims:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+10 verbose lifecycle timeslower-api@1.0.0~test: CWD: /Users/alexandershcherbakov/Developer/TimeSlower_API
 11 silly lifecycle timeslower-api@1.0.0~test: Args: [ '-c',
 11 silly lifecycle   'NODE_ENV=test nodemon --exec \'mocha --recursive -R min\'' ]
 12 silly lifecycle timeslower-api@1.0.0~test: Returned: code: 1  signal: null
 13 info lifecycle timeslower-api@1.0.0~test: Failed to exec test script
 14 verbose stack Error: timeslower-api@1.0.0 test: `NODE_ENV=test nodemon --exec 'mocha --recursive -R min'`
 14 verbose stack Exit status 1
-14 verbose stack     at EventEmitter.<anonymous> (/usr/local/lib/node_modules/npm/lib/utils/lifecycle.js:255:16)
+14 verbose stack     at EventEmitter.<anonymous> (/Users/alexandershcherbakov/.nvm/versions/node/v6.9.4/lib/node_modules/npm/lib/utils/lifecycle.js:255:16)
 14 verbose stack     at emitTwo (events.js:106:13)
 14 verbose stack     at EventEmitter.emit (events.js:191:7)
-14 verbose stack     at ChildProcess.<anonymous> (/usr/local/lib/node_modules/npm/lib/utils/spawn.js:40:14)
+14 verbose stack     at ChildProcess.<anonymous> (/Users/alexandershcherbakov/.nvm/versions/node/v6.9.4/lib/node_modules/npm/lib/utils/spawn.js:40:14)
 14 verbose stack     at emitTwo (events.js:106:13)
 14 verbose stack     at ChildProcess.emit (events.js:191:7)
 14 verbose stack     at maybeClose (internal/child_process.js:877:16)
 14 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:226:5)
 15 verbose pkgid timeslower-api@1.0.0
-16 verbose cwd /Users/a_shcherbakov/Developer/timeslower-api
-17 error Darwin 16.1.0
-18 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "run" "test"
-19 error node v6.9.1
-20 error npm  v3.10.8
+16 verbose cwd /Users/alexandershcherbakov/Developer/TimeSlower_API
+17 error Darwin 15.6.0
+18 error argv "/Users/alexandershcherbakov/.nvm/versions/node/v6.9.4/bin/node" "/Users/alexandershcherbakov/.nvm/versions/node/v6.9.4/bin/npm" "run" "test"
+19 error node v6.9.4
+20 error npm  v3.10.10
 21 error code ELIFECYCLE
 22 error timeslower-api@1.0.0 test: `NODE_ENV=test nodemon --exec 'mocha --recursive -R min'`
 22 error Exit status 1

@@ -1,12 +1,10 @@
 const mongoose = require('mongoose');
 const dateCalculator = require('./date_calculator');
+const lifeEstimator = require('./age_estimator');
+
 const Schema = mongoose.Schema;
 
 const UserSchema = new Schema({
-  name: {
-    type: String,
-    required: true
-  },
   dateOfBirth: {
     type: Date,
     required: true
@@ -14,17 +12,23 @@ const UserSchema = new Schema({
   country: {
     type: String,
     required: true
-  }
+  },
+
+  // Optional
+
+  name: String,
+  gender: Number
 });
 
-UserSchema.virtual('maxAge').get(function() {
-  return 77;
+// Computed properties
+
+UserSchema.virtual('maxAge').get(function () {
+  return lifeEstimator.maxAgeFor(this.country, this.gender);
 });
 
-UserSchema.virtual('age').get(function() {
+UserSchema.virtual('age').get(function () {
   return dateCalculator.calculateAge(this.dateOfBirth, new Date());
 });
-
 
 const User = mongoose.model('user', UserSchema);
 

@@ -11,7 +11,7 @@ describe('Creating user', function () {
     return new User({
       name: 'Alex',
       dateOfBirth: date,
-      country: 'USA'
+      country: 'United States',
     });
   }
 
@@ -33,7 +33,13 @@ describe('Creating user', function () {
 
   it('should calculate user max age', function() {
     const alex = fakeUserAlex();
-    assert(alex.maxAge === 77);
+    alex.gender = 0;
+    assert(alex.maxAge == 76.47);
+  });
+
+  it('should give average age if gender is not specified', function () {
+    const alex = fakeUserAlex();
+    assert(alex.maxAge == 78.88);
   });
 
   it('should calculate current age for user', function () {
