@@ -3,6 +3,7 @@
  */
 const fs = require('fs');
 const Country = require('./country');
+const Gender = require('./gender');
 
 const path = './countries_list.txt';
 const fullList = fs.readFileSync(path, 'utf8').toString().split('\n');
@@ -19,7 +20,7 @@ module.exports = {
   maxAgeFor(countryName, gender) {
     const country = getCountry(countryName);
     if (country) {
-      if (isValidGender(gender)) {
+      if (Gender.isValid(gender)) {
         return genderSpecificAgeInCountry(country, gender);
       } else {
         return country.averageAge;
@@ -45,17 +46,12 @@ function getCountry(name) {
   }
 }
 
-function isValidGender(gender) {
-  return gender !== undefined && gender >= 0 && gender < 2;
-}
-
 function genderSpecificAgeInCountry(country, gender) {
-  const male = 0;
-  const female = 1;
-
-  if (gender === male) {
-    return country.maleAge;
-  } else if (gender === female) {
-    return country.femaleAge;
+  switch(gender) {
+    case Gender.MALE:
+      return country.maleAge; break;
+    case Gender.FEMALE:
+      return country.femaleAge; break;
+    default: break;
   }
 }
