@@ -3,34 +3,27 @@
  */
 const assert = require('assert');
 const Activity = new require('../../models/activity');
+const FakeFactory = require('./fake_factory');
 
 describe('Creating activity', function () {
-  function netflixActivity() {
-    const netflix = new Activity({
-      name: 'Netflix',
-      type: 0,
-      days: [0],
-      notifications: true
-    });
-    return netflix;
-  }
+  let activity;
+
+  beforeEach(function (done) {
+    activity = FakeFactory.fakeActivity();
+    activity.save()
+      .then(() => done());
+  });
 
   it('should create activity', function (done) {
-    const netflix = netflixActivity();
-    netflix.save()
-      .then((activity) => {
-        Activity.findById(activity._id)
-          .then(activity => {
-            assert(activity.name === 'Netflix');
-            done();
-          });
-      });
+    Activity.findById(activity._id)
+      .then(activity => {
+        assert(activity.name === 'Netflix');
+        done();
+    });
   });
 
   it('should find activity by name', function (done) {
-    const netflix = netflixActivity();
-    netflix.save()
-      .then(() => Activity.find({ name: 'Netflix' }))
+    Activity.find({ name: 'Netflix' })
       .then((activities) => {
         assert(activities[0].name === 'Netflix');
         done();

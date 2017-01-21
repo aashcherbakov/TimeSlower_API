@@ -9,6 +9,10 @@ const Schema = mongoose.Schema;
 const ActivitySchema = new Schema({
   name: {
     type: String,
+    validate: {
+      validator: (name) => name.length > 2,
+      message: 'Activity name is too short'
+    },
     required: true
   },
   type: {
