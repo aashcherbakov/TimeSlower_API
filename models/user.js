@@ -4,34 +4,31 @@ const lifeEstimator = require('./age_estimator');
 const Gender = require('./gender');
 const Schema = mongoose.Schema;
 
-const UserSchema = new Schema({
-  dateOfBirth: {
-    type: Date,
-    required: true
-  },
-  country: {
-    type: String,
-    required: true
-  },
+const UserSchema = new Schema(
+  {
+    dateOfBirth: { type: Date, required: true },
+    country: { type: String, required: true },
 
-  // Optional
+    // Optional
 
-  name: String,
-  gender: {
-    type: Number,
-    validate: {
-      validator: (gender) => Gender.isValid(gender),
-      message: 'Gender is not valid'
+    name: String,
+
+    gender: {
+      type: Number,
+      validate: {
+        validator: (gender) => Gender.isValid(gender),
+        message: 'Gender is not valid'
+      },
+      required: false
     },
-    required: false
-  },
 
-  // Connection to Activity schema
-  activities: [{
-    type: Schema.Types.ObjectId,
-    ref: 'activity'
-  }]
-});
+    // Connection to Activity schema
+    activities: [{ type: Schema.Types.ObjectId, ref: 'activity' }]
+  },
+  {
+    toObject: { virtuals: true }, toJSON: { virtuals: true }
+  }
+);
 
 // Computed properties
 
