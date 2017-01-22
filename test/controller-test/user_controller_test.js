@@ -27,4 +27,22 @@ describe('User controller', function () {
           });
       });
     });
+
+  it('PUT to /api/users/id edits an existing user', function (done) {
+    const alex = FakeFactory.user();
+    alex.save().then(() => {
+      request(app)
+        .put(`/api/users/${alex._id}`)
+        .send({ country: 'Ukraine' })
+        .end(() => {
+          User.findOne({ name: alex.name })
+            .then(user => {
+              assert(user.country === 'Ukraine');
+              assert(user.maxAge == 70.76);
+              done();
+            })
+        })
+    })
+  })
 });
+
