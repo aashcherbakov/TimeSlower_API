@@ -6,7 +6,7 @@ const Activity = new require('../../models/activity');
 
 module.exports = {
 
-  fakeUser() {
+  user() {
     const date = new Date("March 28, 1987 11:13:00");
     return new User({
       name: 'Alex',
@@ -15,7 +15,7 @@ module.exports = {
     });
   },
 
-  fakeActivity() {
+  activity() {
     const netflix = new Activity({
       name: 'Netflix',
       type: 0,

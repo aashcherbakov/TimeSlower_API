@@ -10,7 +10,7 @@ describe('Creating user', function () {
   let alex;
 
   beforeEach(function (done) {
-    alex = FakeFactory.fakeUser();
+    alex = FakeFactory.user();
     alex.save()
       .then(() => done());
   });

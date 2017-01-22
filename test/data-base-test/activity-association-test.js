@@ -11,8 +11,8 @@ describe('User-Activity associations', function () {
   let netflix;
 
   beforeEach(function (done) {
-    alex = FakeFactory.fakeUser();
-    netflix = FakeFactory.fakeActivity();
+    alex = FakeFactory.user();
+    netflix = FakeFactory.activity();
 
     alex.activities.push(netflix);
 

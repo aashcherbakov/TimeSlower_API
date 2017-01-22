@@ -9,7 +9,7 @@ describe('Creating activity', function () {
   let activity;
 
   beforeEach(function (done) {
-    activity = FakeFactory.fakeActivity();
+    activity = FakeFactory.activity();
     activity.save()
       .then(() => done());
   });
