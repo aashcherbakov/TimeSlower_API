@@ -1,13 +1,13 @@
 /**
  * Created by alexandershcherbakov on 1/21/17.
  */
-const User = new require('../../models/user');
-const Activity = new require('../../models/activity');
+const User = require('../../models/user');
+const Activity = require('../../models/activity');
 
 module.exports = {
 
   user() {
-    const date = new Date("March 28, 1987 11:13:00");
+    const date = new Date('March 28, 1987 11:13:00');
     return new User({
       name: 'Alex',
       dateOfBirth: date,

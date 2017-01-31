@@ -11,7 +11,7 @@ const ActivityType = {
    * @returns {boolean}
    */
   isValid(type) {
-    return type >= this.ROUTINE, type <= this.GOAL;
+    return type >= this.ROUTINE && type <= this.GOAL;
   }
 
 };

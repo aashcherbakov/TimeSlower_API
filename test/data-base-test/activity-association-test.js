@@ -2,15 +2,14 @@
  * Created by alexandershcherbakov on 1/21/17.
  */
 const assert = require('assert');
-const User = new require('../../models/user');
-const Activity = new require('../../models/activity');
+const User = require('../../models/user');
 const FakeFactory = require('./fake_factory');
 
-describe('User-Activity associations', function () {
+describe('User-Activity associations', () => {
   let alex;
   let netflix;
 
-  beforeEach(function (done) {
+  beforeEach((done) => {
     alex = FakeFactory.user();
     netflix = FakeFactory.activity();
 
@@ -20,8 +19,8 @@ describe('User-Activity associations', function () {
       .then(() => done());
   });
 
-  it('should create associations between user and activity', function (done) {
-    User.findOne({name: alex.name})
+  it('should create associations between user and activity', (done) => {
+    User.findOne({ name: alex.name })
       .populate('activities')
       .then(user => {
         assert(user.name === 'Alex');

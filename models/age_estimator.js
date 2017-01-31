@@ -13,8 +13,8 @@ module.exports = {
   /**
    * Calculates max age for provided country and gender (if one is being passed).
    * If gender argument is not passed, function will return average age for given country.
-   * @param countryName String with country name.
-   * @param gender Number, optional, 0 for male, 1 for female.
+   * @param {String} countryName String with country name.
+   * @param {Number} gender Number, optional, 0 for male, 1 for female.
    * @returns {*}
    */
   maxAgeFor(countryName, gender) {
@@ -22,9 +22,8 @@ module.exports = {
     if (country) {
       if (Gender.isValid(gender)) {
         return genderSpecificAgeInCountry(country, gender);
-      } else {
-        return country.averageAge;
-      }
+      } 
+      return country.averageAge;  
     }
   }
 };
@@ -47,11 +46,12 @@ function getCountry(name) {
 }
 
 function genderSpecificAgeInCountry(country, gender) {
-  switch(gender) {
+  switch (gender) {
     case Gender.MALE:
-      return country.maleAge; break;
+      return country.maleAge;
     case Gender.FEMALE:
-      return country.femaleAge; break;
-    default: break;
+      return country.femaleAge;
+    default: 
+      break;
   }
 }

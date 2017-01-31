@@ -3,13 +3,13 @@
  */
 const assert = require('assert');
 const request = require('supertest');
-const User = new require('../../models/user');
+const User = require('../../models/user');
 const FakeFactory = require('../data-base-test/fake_factory');
 const app = require('../../app');
 
-describe('User controller', function () {
+describe('User controller', () => {
   const alex = FakeFactory.user();
-  it('POST /api/user should create User instance', function (done) {
+  it('POST /api/user should create User instance', (done) => {
     request(app)
       .post('/api/users')
       .send({
@@ -28,8 +28,7 @@ describe('User controller', function () {
       });
     });
 
-  it('PUT to /api/users/id edits an existing user', function (done) {
-    const alex = FakeFactory.user();
+  it('PUT to /api/users/id edits an existing user', (done) => {
     alex.save().then(() => {
       request(app)
         .put(`/api/users/${alex._id}`)
@@ -40,9 +39,9 @@ describe('User controller', function () {
               assert(user.country === 'Ukraine');
               assert(user.maxAge == 70.76);
               done();
-            })
-        })
-    })
-  })
+            });
+        });
+    });
+  });
 });
 

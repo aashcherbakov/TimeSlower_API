@@ -2,27 +2,27 @@
  * Created by alexandershcherbakov on 1/21/17.
  */
 const assert = require('assert');
-const Activity = new require('../../models/activity');
+const Activity = require('../../models/activity');
 const FakeFactory = require('./fake_factory');
 
-describe('Creating activity', function () {
+describe('Creating activity', () => {
   let activity;
 
-  beforeEach(function (done) {
+  beforeEach((done) => {
     activity = FakeFactory.activity();
     activity.save()
       .then(() => done());
   });
 
-  it('should create activity', function (done) {
+  it('should create activity', (done) => {
     Activity.findById(activity._id)
-      .then(activity => {
-        assert(activity.name === 'Netflix');
+      .then(retrievedActivity => {
+        assert(retrievedActivity.name === 'Netflix');
         done();
     });
   });
 
-  it('should find activity by name', function (done) {
+  it('should find activity by name', (done) => {
     Activity.find({ name: 'Netflix' })
       .then((activities) => {
         assert(activities[0].name === 'Netflix');

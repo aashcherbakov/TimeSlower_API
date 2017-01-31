@@ -21,7 +21,7 @@ module.exports = {
 };
 
 function parameters(body) {
-  let params = {};
+  const params = {};
 
   if (body.name) {
     params.name = body.name;
